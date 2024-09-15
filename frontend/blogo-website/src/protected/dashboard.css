@@ -1,0 +1,65 @@
+/* Dashboard Component Styles */
+.dashboard-container {
+    padding: 20px;
+    background-color: #051622; /* Dark background color */
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-title {
+    font-size: 2em;
+    color: #deb992; /* Light color for title */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logout-button {
+    background-color: #1ba098; /* Primary color for button */
+    color: #051622; /* Dark text color for contrast */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #14877a; /* Slightly darker shade for hover effect */
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    background-color: #1ba098; /* Primary color for posts */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 1.5em;
+    color: #051622; /* Dark color for text contrast */
+    margin-bottom: 10px;
+}
+
+.post-content {
+    font-size: 1em;
+    color: #051622; /* Dark color for text contrast */
+}
+
+.no-posts-message {
+    font-size: 1em;
+    color: #deb992; /* Light color for no posts message */
+    text-align: center;
+}
