@@ -4,7 +4,6 @@ import UsersModel from '../models/UserModel';
 import CustomError from '../middlware/ErrorHandler';
 
 export const CreatePost = async (req : Request, res : Response, next : NextFunction) => {
-
     try {
     const { title, body, subtitle, date, user } = req.body;
     const new_post = await PostModel.create({
@@ -66,16 +65,15 @@ export const findAllPost = async (req : Request, res : Response, next : NextFunc
        
         
     } catch (error) {
-        
+        next();
     }
    
-    next();
+    
 }
 
 export const updatePost = async (req : Request, res : Response, next : NextFunction) => {
 
     try {
-        
         const { id } = req.params;
         const { title, subtitle, body } = req.body;
         const updated_post = await PostModel.findByIdAndUpdate( id, {title : title, subtitle : subtitle, body : body});
@@ -113,4 +111,26 @@ export const findUserPosts = async(req : Request, res : Response, next : NextFun
     } 
 }
 
+export const searchPost = async (req : Request, res : Response, next: NextFunction) => {
 
+    try {  
+        const query = decodeURIComponent(req.query.query as string)
+        const result = await PostModel.find({title : {$regex : query, $options : 'i'}});
+    
+    if(result.length > 0) {
+        res.json({
+            post : result
+        });
+    }  
+    else {
+        res.json({
+            message : "No post found with your search query!!"
+        });
+    }
+    
+    } catch (error) {
+        next(error);
+    }
+  
+
+}

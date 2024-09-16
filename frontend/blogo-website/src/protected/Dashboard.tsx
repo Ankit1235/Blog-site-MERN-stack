@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import './dashboard.css';
 import { PostHook } from "../hook/PostHook";
+import SearchPostForm from "./SearchPost";
 
 interface Post {
     title: string;
@@ -48,6 +49,7 @@ const Dashboard = () => {
                 </nav>
             </aside>
             <main className="main-content">
+                <SearchPostForm />
                 <h1 className="dashboard-title">Dashboard Component!</h1>
                 <button className="logout-button" onClick={handleLogout}>Logout</button>
                 <div className="posts-container">

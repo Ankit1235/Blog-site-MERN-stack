@@ -73,7 +73,6 @@ const deletePost = async(post_id : string) => {
             method : 'DELETE',
             headers : {'Content-type' : 'application/json'},
         });
-
         const result = await res.json();
         console.log(result);
     } catch (error) {
@@ -82,6 +81,22 @@ const deletePost = async(post_id : string) => {
 
 }
 
-    return { createPost, getUserId, fetchPost, fetchUserPosts, deletePost, editPost };
+const searchPost = async (searchQuery : string) => {
+    try {
+        console.log(searchQuery);
+        const res = await fetch(`http://localhost:3500/home/auth/search?query=${searchQuery}`,{
+            method : 'get',
+            headers : {'Content-type' : 'application/json'}
+        });
+        if(res) {
+            const result = await res.json();
+            console.log(result);
+        }
+        
+    } catch (error) {
+        console.error(error);
+    }
+}
+    return { createPost, getUserId, fetchPost, fetchUserPosts, deletePost, editPost, searchPost };
 }
 
